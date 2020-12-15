@@ -34,7 +34,7 @@
                  {:keys [op session-id payload]} :body}]
   (swap! bootstrapped (fn [[bootstrapped? v]]
                         (if bootstrapped?
-                          [bootstrapped v]
+                          [true v]
                           [true (bootstrap!)])))
   (if (nil? (second @bootstrapped))
     (do
